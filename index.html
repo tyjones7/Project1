@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Forge Customs</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+   <header class="transparent-header">
+       <nav>
+           <h2>ForgeCustoms</h2>
+           <input type="checkbox" id="menu-toggle" class="menu-toggle">
+           <label for="menu-toggle" class="hamburger">
+               <i class="fa-solid fa-bars"></i>
+           </label>
+       </nav>
+       <!-- <div class="dropdown-menu">
+           <ul>
+               <li><a href="#">Explore Designs</a></li>
+               <li><a href="#">Custom Design</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Contact Us</a></li>
+               <li><a href="#"><i class="fa-regular fa-circle-user"></i></a></li>
+           </ul>
+       </div> -->
+   </header>
+
+
+   <!-- image carousel section -->
+   <section class="relative w-screen h-1/2 overflow-hidden">
+       <div id="carousel" class="flex w-full h-full transition-transform duration-1000 ease-in-out">
+           <img class="w-full h-full object-contain flex-shrink-0" src="/img/wrapblue&black.jpg">
+           <img class="w-full h-full object-contain flex-shrink-0" src="/img/wrapgreen&gray.jpeg">
+           <img class="w-full h-full object-contain flex-shrink-0" src="/img/wrapred&white.jpeg">
+           <img class="w-full h-full object-contain flex-shrink-0" src="/img/wrapscorpion.jpeg">
+           <img class="w-full h-full object-contain flex-shrink-0" src="/img/wrapyellow&black.jpg">
+       </div>
+       <div class="absolute inset-0 flex items-center justify-center flex-col">
+           <h3 class="text-white text-3xl font-bold">MAKE YOUR CAR YOURS</h3>
+           <button class="bg-blue-500 text-white px-4 py-2 rounded mt-6 cursor-pointer hover:bg-blue-600 transition-all duration-300 ease-in-out">Find Your Design</button>
+       </div>
+   </section>
+
+
+   <!-- short company description and images -->
+   <section class="relative flex flex-col items-center justify-center px-4 py-8">
+       <p class="text-center max-w-2xl leading-relaxed text-lg text-gray-800 mb-8">
+           At <span class="font-bold">ForgeCustoms</span>, we specialize in transforming your vehicle with high-quality, custom car wraps designed to match your unique style. Whether you're looking for a bold, eye-catching design or a sleek, professional look, our team combines craftsmanship with cutting-edge technology to deliver a perfect finish every time. Trust us to bring your vision to life with precision, passion, and attention to detail that you can rely on.
+       </p>
+      
+       <div class="flex flex-col space-y-6">
+           <img src="/img/carwraping1.jpg" class="w-full object-contain rounded-lg mt-4 mb-4" alt="Car Wrap 1">
+           <img src="/img/carwraping2.jpg" class="w-full object-contain rounded-lg" alt="Car Wrap 2">
+       </div>
+   </section>
+  
+   <!-- script for the carousel -->
+   <script>
+       const carousel = document.getElementById("carousel");
+       const images = Array.from(carousel.children);
+       const totalImages = images.length;
+       let index = 0;
+       function moveCarousel() {
+           index = (index + 1) % totalImages;
+           carousel.style.transform = `translateX(-${index * 100}%)`;
+       }
+  
+       function setupCarousel() {
+           carousel.style.display = "flex";
+           carousel.style.width = "100%";
+           carousel.style.height = "100%";
+           images.forEach(img => {
+               img.style.width = "100%";
+               img.style.height = "100%";
+           });
+       }
+  
+       setupCarousel();
+       setInterval(moveCarousel, 6000);
+   </script>
+  
+</body>
+</html>
+
